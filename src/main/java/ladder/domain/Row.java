@@ -41,4 +41,21 @@ public class Row {
     public List<Foothold> getRow() {
         return row;
     }
+
+    public void addFoothold(int index) {
+        row.set(index, Foothold.Y);
+    }
+
+    public boolean isFootholdPossible(int index) {
+        int leftIndex = index - 1;
+        int rightIndex = index + 1;
+        return !isExistFoothold(leftIndex) && !isExistFoothold(rightIndex);
+    }
+
+    private boolean isExistFoothold(int index) {
+        if (index < 0 || index >= row.size()) {
+            return false;
+        }
+        return !row.get(index).equals(Foothold.N);
+    }
 }
