@@ -1,9 +1,8 @@
 package ladder.view;
 
-import ladder.domain.Foothold;
-
 import java.util.List;
 import java.util.stream.Collectors;
+import ladder.domain.Foothold;
 import ladder.domain.Row;
 
 public class ResultView {
@@ -11,7 +10,7 @@ public class ResultView {
 
     public void printNames(List<String> names) {
         for (String name : names) {
-            System.out.print(String.format("%6s", name));
+            System.out.printf("%6s", name);
         }
         System.out.println();
     }

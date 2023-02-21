@@ -1,10 +1,13 @@
 package ladder.controller;
 
-import ladder.domain.*;
+import java.util.List;
+import ladder.domain.Height;
+import ladder.domain.Ladder;
+import ladder.domain.Players;
+import ladder.domain.RandomRowsGenerator;
+import ladder.domain.Width;
 import ladder.view.InputView;
 import ladder.view.ResultView;
-
-import java.util.List;
 
 public class LadderGame {
     private final InputView inputView;
@@ -40,7 +43,7 @@ public class LadderGame {
         return randomRowsGenerator.generateRows(width, height);
     }
 
-    private int getWidthSize(int playersSize){
+    private int getWidthSize(int playersSize) {
         return playersSize - 1;
     }
 
