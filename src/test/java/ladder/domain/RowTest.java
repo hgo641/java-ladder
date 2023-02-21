@@ -1,14 +1,14 @@
 package ladder.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatNoException;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThatNoException;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class RowTest {
     @Test
@@ -32,5 +32,11 @@ class RowTest {
     public void 생성_success(Foothold first, Foothold second) {
         assertThatNoException()
                 .isThrownBy(() -> Row.of(List.of(first, second), 2));
+    }
+
+    @Test
+    public void 발판_생성_가능() {
+        Row row = Row.of(List.of(Foothold.N, Foothold.N, Foothold.Y), 3);
+        assertThat(row.isFootholdPossible(0)).isEqualTo(true);
     }
 }
